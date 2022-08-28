@@ -10,7 +10,8 @@
   \tikz\node[draw,rounded corners,align=center,] {#1};%
 }
 
-\title{Hash Table}
+\title{CSE 300 Presentation}
+\subtitle{Hash Table}
 \date{}
 \titlegraphic{%
   \begin{picture}(0,0)
@@ -41,16 +42,37 @@
 \maketitle
 
 \begin{frame}{Definition}
-\begin{block}{}
-  \centering
-  Hash table is a data structure which maps keys to values using hash functions for efficient search/retrieval, insertion and removals.  
-\end{block}
+    \begin{block}{}
+      \centering
+      Hash table is a data structure which maps keys to values using hash functions for efficient search/retrieval, insertion and removals.  
+    \end{block}
+    
+    \onslide<2>
+    \begin{block}{Wikipedia says}
+        \centering
+        In computing, a hash table, also known as hash map or dictionary, is a data structure that implements a set abstract data type, a structure that can map keys to values.  
+    \end{block}  
+\end{frame}
 
-\onslide<2>
-\begin{block}{Wikipedia says}
-    \centering
-    In computing, a hash table, also known as hash map or dictionary, is a data structure that implements a set abstract data type, a structure that can map keys to values.  
-\end{block}  
+\begin{frame}{Hash Function}
+    \onslide<1->
+    \begin{definition}
+        A hash function is a function which maps data of arbitrary size to fixed-sized values.
+    \end{definition}
+
+    \onslide<2>
+    \begin{block}{}
+        A hash function is called by passing a variable-sized key and generating a value based on an approach. The returned value is used to hash/put the key on a hash table.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Some Hash Functions}
+    \begin{itemize}
+        \item \texttt{Identity hash function} \pause
+        \item \texttt{Trivial hash function} \pause
+        \item \texttt{Division hashing} \pause
+        \item \texttt{Customized hash function}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Example}
