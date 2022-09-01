@@ -1,0 +1,59 @@
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows, positioning, calc}  
+\usetikzlibrary{overlay-beamer-styles}
+\newcommand\RBox[1]{%
+  \tikz\node[draw,rounded corners,align=center,] {#1};%
+}
+
+\title{CSE 300 Presentation}
+\subtitle{Hash Table}
+\date{}
+\titlegraphic{%
+  \begin{picture}(0,0)
+    \put(50,40){\makebox(0,0)[rt]{\includegraphics[width=4cm]{hash_table.png}}}
+  \end{picture}}
+
+\author[Abdus Samee \& Tamim Ehsan]
+{%
+   \texorpdfstring{
+        \begin{columns}
+            \column{.45\linewidth}
+            \centering
+            \RBox{Abdus Samee\\
+            \texttt{1805021}
+            }
+            \column{.45\linewidth}
+            \centering
+            \RBox{Tamim Ehsan\\
+            \texttt{1805022}
+            }
+        \end{columns}
+   }
+   {John Doe \& Jane Doe}
+}
+
+\begin{document}
+
+\maketitle
+
+
+% Samee
+
+\input{Definition}
+\input{Hash Function}
+\input{Some Hash Function}
+\input{Example}
+
+% Tamim
+\input{Collision}
+\input{Load Factor}
+\input{Collision Resolution}
+\input{Linear Probing}
+\include{Chaining}
+\include{LFF2}
+\end{document}
