@@ -1,0 +1,39 @@
+\begin{frame}{Chaining Method}
+    %\Slide->1    Latex->2    Samee->3    Tamim->0
+    \begin{tikzpicture}[remember picture, overlay, shift={(2,0)}]
+    
+   
+        
+        
+        \draw (0,1) rectangle (1,2);     \draw[visible on=<2->] (2,1) rectangle (3,1.9);  \draw[visible on=<4->] (4,1) rectangle (5,1.9);
+         \draw (0,0) rectangle (1,1);    \draw[visible on=<3->] (2,0) rectangle (3,0.9);
+        \draw (0,-2) rectangle (1,-1);   \draw[visible on=<5->] (2,-2) rectangle (3,-1.1);
+        \draw (0,-1) rectangle (1,0);       
+       
+        % \draw (0,0) rectangle (10,2);
+        
+        \node[visible on=<1->] (a) at (2,-2.5) {\texttt{Tamim}};
+        \node[visible on=<1->] (c) at (6,-2.5) {\texttt{Slide}};
+        \node[visible on=<1->] (b) at (4,-2.5) {\texttt{Overleaf}};
+        \node[visible on=<1->] (b) at (8,-2.5) {\texttt{Samee}};
+
+        \node[color=red, visible on=<1->] (e) at (3,3) {\texttt{Hash function: Sum of ASCII mod 4}};
+
+        \draw[-stealth, visible on=<2->] (2,-2.25) -- (2.5,1.5);
+        \draw[-stealth, visible on=<3->] (6,-2.25) -- (2.5,0.5);
+        \draw[-stealth, visible on=<4->] (4,-2.25) -- (4.5,1.5);
+        \draw[-stealth, visible on=<5->] (8,-2.25) -- (2.5,-1.5);
+       
+        
+        \draw[color=red,-stealth, visible on=<2->] (0.7,1.5) -- (2.3,1.5);
+        \draw[color=red,-stealth, visible on=<3->] (0.7,0.5) -- (2.3,0.5);
+        \draw[color=red,-stealth, visible on=<4->] (2.7,1.5) -- (4.3,1.5);
+        \draw[color=red,-stealth, visible on=<5->] (0.7,-1.5) -- (2.3,-1.5);
+     
+        
+        \node[color=blue!50, visible on=<2>] at (3.25,-3) {\texttt{Hash value: (84+65+77+73)mod4 = 0}};
+        \node[color=blue!50, visible on=<3>] at (3.25,-3) {\texttt{Hash value: (83+76+73+68+69)mod4 = 1}};
+        \node[color=blue!50, visible on=<4>] at (3.25,-3) {\texttt{Hash value: (79+86+69+82+76+69+65+70)mod4 = 0}};
+        \node[color=blue!50, visible on=<5>] at (3.25,-3) {\texttt{Hash value: (83+65+77+69+69)mod4 = 3}};
+    \end{tikzpicture}
+\end{frame}
