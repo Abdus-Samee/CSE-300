@@ -1,0 +1,80 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{acronym}
+\usepackage{hyperref} 
+\usetikzlibrary{overlay-beamer-styles}
+\usetikzlibrary{shapes, positioning, calc}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+
+\tikzstyle{data} = [rectangle, rounded corners, draw=airforceblue, text=blue, thick]
+\tikzstyle{arrow} = [--, color=grey]
+
+\usetheme{Frankfurt}
+
+\title{1805021}
+\author{Abdus Samee}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}{Example: 0/1 knapsack}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+             \hline
+             i & 1 & 2 & 3 & 4\\
+             \hline
+             V & 10 & 40 & 30 & 50\\
+             \hline
+             W & 5 & 4 & 6 & 3\\
+             \hline \onslide<3> 
+             V/W & 2 & 10 & 5 & 16.667\\
+             \hline
+        \end{tabular}\\
+        \includegraphics[scale=0.4]{bag.png}
+        \textcolor{red}{Capacity: 10}
+    \end{table} \pause
+
+    \onslide<2>
+    \begin{block}{Max Value}
+        \centering
+        The maximum possible value we can achieve is bounded by\\ the solution of the fractional knapsack problem\\ (50 + 40 + 30/2 = 105)
+    \end{block}
+\end{frame}
+
+\begin{frame}{Example: 0/1 knapsack}
+    \begin{tikzpicture}[node distance = 1.5cm]
+        % \node (a) [data] {CW = 0; V = 105};\pause
+        % \node (b1) [below of=a, xshift=-1cm] {};
+        % \draw[arrow] (a) -- (b1);\pause
+        % \draw[arrow] (a) -- (b1) node[midway, anchor=left above] {$i_1=0$};\pause
+        % \node (b) [data, below of=a, xshift=-1cm] {CW = 0; V = 105};
+        \node (a) [data, visible on=<1->] {CW = 0; V = 105};
+        \node (b) [data, below of=a, xshift=-2cm, visible on=<3->] {CW = 0; V = 105};
+        \node (c) [data,, visible on=<5->, below of=a, xshift=2cm] {CW = 5; V = 80};
+        \node (d) [data, below of=b, xshift=-2cm, visible on=<7->] {CW = 0; V = 80};
+        \node (e) [data, below of=b, xshift=2cm, visible on=<7->] {CW = 4; V = 105};
+        \node (f) [data, below of=e, xshift=-2cm, visible on=<9->] {CW = 4; V = 90};
+        \node (g) [data, fill=red, text=black, below of=e, xshift=2cm, visible on=<11->] {CW = 10; V = 70};
+        \node (h) [data, below of=f, xshift=-2cm, visible on=<14->] {CW = 4; V = 40};
+        \node (i) [data, fill=babyblue, below of=f, xshift=2cm, visible on=<14->] {CW = 7; V = 90};
+        \draw[arrow, visible on=<2->] (a) -- (b) node[midway] {$i_1=0$};
+        \draw[arrow, visible on=<4->] (a) -- (c) node[midway] {$i_1=1$};
+        \draw[arrow, visible on=<6->] (b) -- (d) node[midway] {$i_2=0$};
+        \draw[arrow, visible on=<6->] (b) -- (e) node[midway] {$i_2=1$};
+        \draw[arrow, visible on=<8->] (e) -- (f) node[midway,above left] {$i_3=0$};
+        \draw[arrow, visible on=<10->] (e) -- (g) node[midway,above right] {$i_3=1$};
+        \draw[arrow, visible on=<12->] (f) -- (h) node[midway,above left] {$i_4=0$};
+        \draw[arrow, visible on=<12->] (f) -- (i) node[midway,above right] {$i_4=1$};
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}
