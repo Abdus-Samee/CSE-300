@@ -1,0 +1,3 @@
+ - Presentation topic: Hash Table
+ - Members: 2
+ - Total time alloted: 3 mins(1 min each)
